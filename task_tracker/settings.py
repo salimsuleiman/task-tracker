@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-*q!205&5a1&v9iz)fxufn&r3uf@gv7#$7)6z7u@1s$cg^@g5&a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['task-tracker-api-2021.herokuapp.com', '*']
+ALLOWED_HOSTS = ['task-tracker-api-2021.herokuapp.com', '*', 'http://0.0.0.0:5000']
 
 
 # Application definition
@@ -139,6 +139,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = "static_root"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
