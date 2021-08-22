@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import environ
+env = environ.Env()
+
+environ.Env.read_env()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +31,7 @@ SECRET_KEY = 'django-insecure-*q!205&5a1&v9iz)fxufn&r3uf@gv7#$7)6z7u@1s$cg^@g5&a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['task-tracker-api-2021.herokuapp.com', '*']
 
 
 # Application definition
@@ -86,8 +92,12 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env("DB_HOST"),
+        'POST': env('DB_PORT')
     }
 }
 
