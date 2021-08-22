@@ -1,13 +1,13 @@
+from django.http.response import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import TaskSerializer
 from .models import Task
 from django.shortcuts import get_object_or_404, render
-import json
-
+from django.http import HttpResponse
 
 def home(request):
-    return render('home.html', {})
+    return HttpResponse('[<h1>Hi</h1>')
 
 @api_view(['GET'])
 def get_all_tasks(request):
