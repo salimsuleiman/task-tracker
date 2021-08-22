@@ -31,7 +31,8 @@ SECRET_KEY = 'django-insecure-*q!205&5a1&v9iz)fxufn&r3uf@gv7#$7)6z7u@1s$cg^@g5&a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['task-tracker-api-2021.herokuapp.com', '*', 'http://0.0.0.0:5000']
+ALLOWED_HOSTS = ['task-tracker-api-2021.herokuapp.com',
+                 '*', 'http://0.0.0.0:5000']
 
 
 # Application definition
@@ -63,10 +64,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://relaxed-pare-70ad35.netlify.app/",
-]
-
+# CORS_ALLOWED_ORIGINS = [
+#     "https://relaxed-pare-70ad35.netlify.app/",
+#     'http://localhost:3000',
+#     'localhost:3000'
+# ]
+CORS_ALLOW_ALL_ORIGINS: bool = True
 ROOT_URLCONF = 'task_tracker.urls'
 
 TEMPLATES = [
@@ -87,10 +90,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'task_tracker.wsgi.application'
 REST_FRAMEWORK = {
-   'DEFAULT_AUTHENTICATION_CLASSES': [
-    # 'rest_framework.authentication.SessionAuthentication',
-    'rest_framework.authentication.BasicAuthentication',
-]
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ]
 }
 
 
